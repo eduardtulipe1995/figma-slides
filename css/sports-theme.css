@@ -1,0 +1,233 @@
+/**
+ * Sports Theme for Reveal.js
+ * Based on Figma design: "ИИ-презы" (Sports.ru style)
+ *
+ * Colors:
+ *   - Background: #2D2D2D (dark gray)
+ *   - Accent: #25EEA4 (mint green)
+ *   - Text: #FFFFFF (white)
+ *
+ * Fonts:
+ *   - Headings: TT Sports Display → Oswald (fallback)
+ *   - Body: TT Neoris → Inter (fallback)
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --r-background-color: #2D2D2D;
+  --r-main-font: 'Inter', 'TT Neoris', sans-serif;
+  --r-main-font-size: 26px;
+  --r-main-color: #FFFFFF;
+  --r-heading-font: 'Oswald', 'TT Sports Display', sans-serif;
+  --r-heading-color: #25EEA4;
+  --r-heading-letter-spacing: 0.02em;
+  --r-heading-text-transform: none;
+  --r-heading-font-weight: 600;
+  --r-link-color: #25EEA4;
+  --r-link-color-hover: #5FFFC4;
+  --r-selection-background-color: #25EEA4;
+  --r-selection-color: #2D2D2D;
+
+  /* Custom variables */
+  --accent-color: #25EEA4;
+  --text-muted: rgba(255, 255, 255, 0.7);
+  --pattern-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Base styles */
+.reveal-viewport {
+  background: var(--r-background-color);
+}
+
+.reveal {
+  font-family: var(--r-main-font);
+  font-size: var(--r-main-font-size);
+  font-weight: 400;
+  color: var(--r-main-color);
+}
+
+/* Geometric pattern background */
+.reveal .slides section {
+  background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M100 0 L200 100 L100 200 L0 100 Z' fill='rgba(0,0,0,0.15)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-position: right center;
+  background-size: 150px 150px;
+}
+
+.reveal .slides section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(to right, var(--r-background-color) 70%, transparent 100%);
+  z-index: -1;
+}
+
+/* Headings */
+.reveal h1 {
+  font-family: var(--r-heading-font);
+  color: var(--r-heading-color);
+  font-size: 2.8em;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: var(--r-heading-letter-spacing);
+  line-height: 1.1;
+  margin-bottom: 0.4em;
+}
+
+.reveal h2 {
+  font-family: var(--r-heading-font);
+  color: var(--r-heading-color);
+  font-size: 1.8em;
+  font-weight: 600;
+  text-transform: none;
+  margin-bottom: 0.6em;
+}
+
+.reveal h3 {
+  font-family: var(--r-main-font);
+  color: var(--r-main-color);
+  font-size: 1.3em;
+  font-weight: 600;
+  margin-bottom: 0.4em;
+}
+
+/* Paragraphs */
+.reveal p {
+  margin: 0.8em 0;
+  line-height: 1.5;
+}
+
+/* Lists */
+.reveal ul, .reveal ol {
+  display: block;
+  text-align: left;
+  margin-left: 1em;
+}
+
+.reveal li {
+  margin: 0.5em 0;
+  line-height: 1.4;
+}
+
+.reveal ul li::marker {
+  color: var(--accent-color);
+}
+
+/* Two-column layout */
+.reveal .columns {
+  display: flex;
+  gap: 60px;
+  text-align: left;
+}
+
+.reveal .column {
+  flex: 1;
+}
+
+.reveal .column h3 {
+  color: var(--r-main-color);
+  font-weight: 600;
+  margin-bottom: 0.5em;
+}
+
+/* Section labels */
+.reveal .label {
+  color: var(--r-main-color);
+  font-weight: 600;
+  display: inline;
+}
+
+/* Title slide */
+.reveal section.title-slide {
+  text-align: left;
+}
+
+.reveal section.title-slide h1 {
+  font-size: 3.2em;
+}
+
+.reveal section.title-slide .subtitle {
+  font-size: 1.4em;
+  color: var(--r-main-color);
+  margin-top: 0.5em;
+}
+
+/* Content slide */
+.reveal section.content-slide {
+  text-align: left;
+}
+
+/* Thank you slide */
+.reveal section.thanks-slide {
+  text-align: left;
+}
+
+.reveal section.thanks-slide h1 {
+  font-size: 3.5em;
+}
+
+.reveal section.thanks-slide .contact {
+  font-size: 1.3em;
+  color: var(--r-main-color);
+  margin-top: 0.5em;
+}
+
+/* Logo in corner */
+.reveal .logo {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-family: var(--r-heading-font);
+  font-size: 1.2em;
+  font-weight: 600;
+  color: var(--r-main-color);
+  z-index: 100;
+}
+
+.reveal .logo::after {
+  content: '"';
+  color: var(--accent-color);
+  margin-left: 2px;
+}
+
+/* Accent text */
+.reveal .accent {
+  color: var(--accent-color);
+}
+
+/* Bold labels */
+.reveal strong {
+  font-weight: 600;
+}
+
+/* Progress bar */
+.reveal .progress {
+  background: rgba(255, 255, 255, 0.1);
+  height: 4px;
+}
+
+.reveal .progress span {
+  background: var(--accent-color);
+}
+
+/* Slide number */
+.reveal .slide-number {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 900px) {
+  .reveal h1 {
+    font-size: 2em;
+  }
+
+  .reveal .columns {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
